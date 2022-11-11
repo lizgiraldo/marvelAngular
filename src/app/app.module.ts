@@ -6,24 +6,21 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { PersonajesComponent } from './components/personajes/personajes.component';
 import { HttpClientModule } from '@angular/common/http';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatCardModule} from '@angular/material/card';
-
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCardModule } from '@angular/material/card';
+import { PersonajeComponent } from './components/personaje/personaje.component';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PersonajesComponent
-  ],
+  declarations: [AppComponent, PersonajesComponent, PersonajeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
     MatGridListModule,
-    MatCardModule
+    MatCardModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,4 +1,4 @@
-<nav class="navbar bg-dark">
+<nav class="navbar bg-dark" style="margin-bottom: 20px">
   <div class="container-fluid">
     <a class="navbar-brand">PERSONAJES MARVEL</a>
     <form class="d-flex" role="search">
@@ -15,23 +15,38 @@
 </nav>
 
 <div class="container">
-  <mat-grid-list cols="2" rowHeight="2:1">
-    <mat-grid-tile *ngFor="let personaje of todosLosPersonajes | async"
-      ><mat-card
-        class="example-card"
-      >
-        <mat-card-title-group>
-          <mat-card-title>{{personaje.name}}</mat-card-title>
-          <mat-card-subtitle>{{personaje.modified | date}}</mat-card-subtitle>
-          <img
-            mat-card-xl-image
-            src="{{personaje.thumbnail.path}}.{{personaje.thumbnail.extension}}"
-          />
-        </mat-card-title-group>
-      </mat-card></mat-grid-tile
+  <div class="row">
+    <div
+      class="col"
+      *ngFor="let personaje of todosLosPersonajes | async"
+      style="margin-bottom: 20px"
     >
-  </mat-grid-list>
-  <div *ngIf="!todosLosPersonajes">
-    sin resultados
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{ personaje.name }}</mat-card-title>
+          <mat-card-subtitle>{{ personaje.modified | date }}</mat-card-subtitle>
+        </mat-card-header>
+        <img
+          mat-card-image
+          src="{{ personaje.thumbnail.path }}.{{
+            personaje.thumbnail.extension
+          }}"
+          style="width: 400px; height: 400px"
+        />
+        <mat-card-content> </mat-card-content>
+        <mat-card-actions>
+          <div class="d-grid gap-2">
+            <a
+              routerLink="/personaje/{{ personaje.id }}"
+              class="btn btn-danger"
+              type="button"
+              >Ver mas...</a
+            >
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </div>
   </div>
+  <div *ngIf="!todosLosPersonajes">sin resultados</div>
 </div>

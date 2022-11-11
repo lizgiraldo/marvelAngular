@@ -1,0 +1,74 @@
+<div class="container" *ngIf="contenidoCargado">
+  <div *ngFor="let personaje of personaje | async">
+    <div class="row">
+      <div class="col-md-3">
+        <div class="card" style="width: 18rem">
+          <img
+            src="{{ personaje.thumbnail.path }}.{{
+              personaje.thumbnail.extension
+            }}"
+            class="card-img-top"
+          />
+          <div class="card-body">
+            <p class="card-text">{{ personaje.name }}</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div>
+          {{ personaje.description }}
+          <span *ngIf="personaje.description == ''">
+            DESCRIPCION NO DISPONIBLE
+          </span>
+        </div>
+        <div><b>ULTIMA MODIFICACIÒN:</b> {{ personaje.modified | date }}</div>
+      </div>
+    </div>
+  </div>
+  <div class="row" style="margin-top: 10px">
+    <h1>Historias</h1>
+  </div>
+  <div class="row">
+    <div class="col-md-2" *ngFor="let historia of historias | async">
+      <div class="card" style="width: 18rem" style="margin-top: 10px">
+        <img
+          src="https://llerena.org/wp-content/uploads/2017/11/imagen-no-disponible.jpg"
+          class="card-img-top"
+          alt="..."
+        />
+        <div class="card-body">
+          <h5 class="card-title">{{ historia.title }}</h5>
+          <p class="card-text">{{ historia.description }}</p>
+          <p *ngIf="historia.description == ''">descripcion no disponible</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">Type: {{ historia.type }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h1>COMICS</h1>
+    <div class="row">
+      <div
+        class="col"
+        *ngFor="let comic of comics | async"
+        style="margin-top: 10px"
+      >
+        <div class="card" style="width: 18rem">
+          <img
+            src="{{ comic.thumbnail.path }}.{{ comic.thumbnail.extension }}"
+            class="card-img-top"
+          />
+          <div class="card-body">
+            <p class="card-text">
+              <b>TITULO: </b>{{ comic.title }}
+              <br />
+              <b>FECHA PUBLICACION: </b>{{ comic.dates[0].date | date }}
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
