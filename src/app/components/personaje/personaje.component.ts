@@ -18,6 +18,7 @@ export class PersonajeComponent implements OnInit {
   public historias: any = [];
   public comics: any = [];
   public contenidoCargado: boolean = false;
+  public flag: boolean = false;
 
   async ngOnInit(): Promise<void> {
     await this.cargarInformacion(this.rutaActiva.snapshot.params['id']);
@@ -40,4 +41,12 @@ export class PersonajeComponent implements OnInit {
   private cargarComics(id: string) {
     this.comics = this.personajeService.obtenerComicsPorPersonajeId(id);
   }
-}
+
+  public cambiarFlag(){
+    this.flag = !this.flag;
+  }
+
+  
+
+  }
+

@@ -14,11 +14,11 @@
           </div>
         </div>
       </div>
-      <div class="col-md-8">
+      <div class="col-md-8 osdo my-2 mx-3">
         <div>
-          {{ personaje.description }}
+          <h3>{{ personaje.description }}</h3>
           <span *ngIf="personaje.description == ''">
-            DESCRIPCION NO DISPONIBLE
+            <h5>DESCRIPCION NO DISPONIBLE</h5>
           </span>
         </div>
         <div><b>ULTIMA MODIFICACIÒN:</b> {{ personaje.modified | date }}</div>
@@ -36,13 +36,24 @@
           class="card-img-top"
           alt="..."
         />
-        <div class="card-body">
-          <h5 class="card-title">{{ historia.title }}</h5>
-          <p class="card-text">{{ historia.description }}</p>
-          <p *ngIf="historia.description == ''">descripcion no disponible</p>
+        <div class="card-body"
+          *ngIf="flag == true; then thenBlock; else elseBlock">
         </div>
+        <ng-template #thenBlock>
+          <h5 class="card-title">{{ historia.title }}</h5>
+          <p  class="card-text" *ngIf="historia.description == ''">Descripcion no disponible</p>
+          <p class="card-text">{{ historia.description }}</p>
+        </ng-template>
+        <ng-template #elseBlock>
+          <h5 class="card-title">{{ historia.title }}</h5>
+          <p class="card-text text-truncate" *ngIf="historia.description == ''">Descripcion no disponible</p>
+          <p class="card-text text-truncate">{{ historia.description }}</p>
+        </ng-template>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">Type: {{ historia.type }}</li>
+          <p>Type: {{ historia.type }}</p>
+          <button (click)="cambiarFlag()" class="btn btn-primary">
+            Ver más...
+          </button>
         </ul>
       </div>
     </div>
