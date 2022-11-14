@@ -1,8 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Marvel:wght@400;700&display=swap');
+
 .example-card {
   max-width: 400px;
 }
 
+.navbar-brand{
+    color: red;
+    font-family: 'Marvel', sans-serif;
+    font-size: 200%;
+  }
+
 .example-header-image {
   background-image: url("https://material.angular.io/assets/img/examples/shiba1.jpg");
   background-size: cover;
+}
+
+.navbar.bg-dark{
+  margin-bottom: 20px;
+}
+
+
+
+.col{
+  margin-bottom: 20px;
+}
+
+.imgPersonaje{
+  width: 400px; 
+  height: 400px;
 }

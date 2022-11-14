@@ -1,3 +1,8 @@
+<nav class="navbar bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand"><b>MARVEL</b></a> 
+  </div>
+</nav>
 <div class="container" *ngIf="contenidoCargado">
   <div *ngFor="let personaje of personaje | async">
     <div class="row">
@@ -14,14 +19,14 @@
           </div>
         </div>
       </div>
-      <div class="col-md-8 osdo my-2 mx-3">
+      <div class="col-md-8 my-2 mx-3">
         <div>
           <h3>{{ personaje.description }}</h3>
           <span *ngIf="personaje.description == ''">
-            <h5>DESCRIPCION NO DISPONIBLE</h5>
+            <h5>DESCRIPCIÓN NO DISPONIBLE</h5>
           </span>
         </div>
-        <div><b>ULTIMA MODIFICACIÒN:</b> {{ personaje.modified | date }}</div>
+        <div><b>ÚLTIMA MODIFICACIÓN:</b> {{ personaje.modified | date }}</div>
       </div>
     </div>
   </div>
@@ -41,12 +46,12 @@
         </div>
         <ng-template #thenBlock>
           <h5 class="card-title">{{ historia.title }}</h5>
-          <p  class="card-text" *ngIf="historia.description == ''">Descripcion no disponible</p>
+          <p  class="card-text" *ngIf="historia.description == ''">Descripción no disponible</p>
           <p class="card-text">{{ historia.description }}</p>
         </ng-template>
         <ng-template #elseBlock>
           <h5 class="card-title">{{ historia.title }}</h5>
-          <p class="card-text text-truncate" *ngIf="historia.description == ''">Descripcion no disponible</p>
+          <p class="card-text text-truncate" *ngIf="historia.description == ''">Descripción no disponible</p>
           <p class="card-text text-truncate">{{ historia.description }}</p>
         </ng-template>
         <ul class="list-group list-group-flush">
@@ -59,7 +64,7 @@
     </div>
   </div>
   <div>
-    <h1>COMICS</h1>
+    <h1 class="comicMargin">COMICS</h1>
     <div class="row">
       <div
         class="col"
