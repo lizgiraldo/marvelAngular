@@ -23,7 +23,7 @@ export class PersonajeServiceService {
     const RUTA_BUSCAR_POR_NOMBRE =
       conexionConstants.BASE_URL +
       conexionConstants.QUESTION +
-      `name=${nombre}` +
+      `nameStartsWith=${nombre}` +
       conexionConstants.AND +
       conexionConstants.FINAL_URL;
     return this.httpClient
